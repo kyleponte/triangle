@@ -1,13 +1,21 @@
 def classify_triangle(a, b, c):
+    if a + b <= c or a + c <= b or b + c <= a:
+        return 'Not a triangle'
+    
+    sides = sorted([a, b, c])
+    a = sides[0]
+    b = sides[1]
+    c = sides[2]
+    
     if a == b and a == c:
-        return 'The triangle is equilateral'
+        return 'Equilateral'
     elif a == b or a == c or b == c:
         if pow(a, 2) + pow(b, 2) == pow(c, 2):
-            return 'The right triangle is isosceles'
-        return 'The triangle is isosceles'
+            return 'Right Isoceles'
+        else:
+            return 'Isosceles'
     else:
         if pow(a, 2) + pow(b, 2) == pow(c, 2):
-            return 'The right triangle is scalene'
-        return 'The triangle is scalene'
-    
-print(classify_triangle(3, 4, 5))
+            return 'Right Scalene'
+        else:
+            return 'Scalene'
