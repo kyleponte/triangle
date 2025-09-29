@@ -9,7 +9,10 @@ jobs:
       - run: python -m venv .venv
       - run: . .venv/bin/activate && pip install --upgrade pip
       - run: . .venv/bin/activate && pip install requests
-      - run: . .venv/bin/activate && python -m unittest -v GitHubApi567-Hw4a/test_hw4a.py
+      - run: |
+          . .venv/bin/activate
+          cd GitHubApi567-Hw4a
+          python -m unittest -v test_hw4a.py
 
 workflows:
   build_and_test:
