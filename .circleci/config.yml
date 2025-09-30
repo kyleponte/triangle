@@ -11,8 +11,8 @@ jobs:
       - run: . .venv/bin/activate && pip install requests
       - run: |
           . .venv/bin/activate
-          cd GitHubApi567-Hw4a
-          python -m unittest -v test_hw4a.py
+          cd GitHubApi567-Hw3a
+          python -m unittest -v test_hw3a.py
 
 workflows:
   build_and_test:
