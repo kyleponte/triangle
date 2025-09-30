@@ -2,7 +2,15 @@ import unittest
 import hw3a
 
 
-class TestHW3ALive(unittest.TestCase):
+class FakeResponse:
+    def __init__(self, status_code=200, json_data=None):
+        self.status_code = status_code
+        self._json = json_data if json_data is not None else []
+
+    def json(self):
+        return self._json
+
+class TestHW3AMock(unittest.TestCase):
     def test_known_user_has_repos(self):
         """Check that a known public user has at least one repo."""
         data = hw3a.list_repos("kyleponte")
